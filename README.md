@@ -1,48 +1,25 @@
-
 # Problema
 
-Nossa aplicação lê, processa e disponibiliza dados provenientes de sensores IoT para controle de temperatura; mas precisamos reescrevê-la visando uma modernização dos nossos fluxos, ferramentas e etc.
+Crie uma aplicação que permita o gerenciamente de tarefas pessoais (_To Do_), e que exponha suas funcionalidades através de uma API RESTful.
 
 # Requisitos
 
-
-- API RESTful
-
-  - Desenvolva rotas (CRUD) para manipulação de recursos como `usuários`, `cliente`, `sensores` e `medidas`, e rotas para receber leituras de cada equipamento.
-
-  - Crie scripts para [enviar dados](https://github.com/eclipse/paho.mqtt.python) para o [broker](https://hub.docker.com/r/emqx/emqx) para ao menos dois clientes diferentes.
-
-  - Crie [consumidores](https://github.com/eclipse/paho.mqtt.python) para ler dados do broker e disponilizar os mesmos de acordo os modelos.
-
-  - A rota que elenca as leituras do sensor, deve adicionalmente ser capaz de mostrar apenas a última leitura.
-
-  - Criar uma rota para elencar médias diárias de temperatura.
-
-  - As rotas de leitura devem possuir paginação e ordenação decrescentes (data de criação).
-
-- Testes:
-
-  - Escreva testes de unidade abrangentes para as principais funcionalidades da aplicação.
-
-  - Crie testes de integração para garantir que os componentes da aplicação funcionem bem em conjunto.
-
-- Bancos Relacionais e Não-Relacionais:
-
-  - Configure um banco de dados relacional (PostgreSQL) para armazenar informações essenciais da aplicação.
-
-  - Integre um banco de dados não relacional (por exemplo, MongoDB ou Redis) para armazenar dados que se beneficiam de um modelo de dados flexível.
-
-- Cache:
-
-  - Implemente cache em partes críticas da aplicação para melhorar o desempenho.
-
-- Segurança Básica:
-
-  - Implemente medidas de segurança básicas, como autenticação e autorização para proteger os recursos da API.
-
-- Alto Desempenho:
-
-  - Avalie opções como otimização de consultas, _tuning_ em servidores de aplicação e etc. para assegurarmos que a aplicação é capaz de suportar algum volume.
+- A aplicação deve permitir a criação, leitura, atualização e exclusão de tarefas.
+- Cada tarefa deve ter um título, descrição, data de criação, data da última atualização e um status (concluída ou não).
+- Utilize o framework [Django](https://www.djangoproject.com/) para criar o backend da aplicação.
+- Utilize o Postgres como base de dados relacional.
+- As rotas de leituram devem usar `cache`.
+  - Utilize o Redis.
+- Crie rotas RESTful para:
+  - Listar todas as tarefas
+  - Criar uma nova tarefa
+  - Ler detalhes de uma tarefa específica
+  - Atualizar o status de uma tarefa
+  - Excluir uma tarefa
+- Implemente testes unitários para garantir o funcionamento correto das operações da API.
+- Documente a API usando Open API
+- Disponibilize o código-fonte no GitHub ou em um arquivo zip.
+- Caso o repositório com a resolução seja privado, inclua o usuário rodrigobraga com permissão de leitura.
 
 # Premissas
 
@@ -61,4 +38,4 @@ Nossa aplicação lê, processa e disponibiliza dados provenientes de sensores I
 - Django Admin habilitado
 - Docker e Docker Compose para criação da infraestrutura
 - Checagem de código usando linter e/ou formatadores
-- Alguma mecanica de monitoramento
+- Alguma mecânica de monitoramento
